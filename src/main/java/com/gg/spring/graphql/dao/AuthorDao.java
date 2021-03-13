@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AuthorDao {
 
-    private List<Author> authors;
+    private final List<Author> authors;
 
     public AuthorDao(List<Author> authors) {
         this.authors = authors;

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PostDao {
-    private List<Post> posts;
+    private final List<Post> posts;
 
     public PostDao(List<Post> posts) {
         this.posts = posts;

@@ -7,7 +7,7 @@ import com.gg.spring.graphql.model.Post;
 import java.util.List;
 
 public class AuthorResolver {
-    private PostDao postDao;
+    private final PostDao postDao;
 
     public AuthorResolver(PostDao postDao) {
         this.postDao = postDao;

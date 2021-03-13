@@ -10,11 +10,14 @@ import com.gg.spring.graphql.model.Author;
 import com.gg.spring.graphql.model.Post;
 import com.gg.spring.graphql.query.Query;
 import com.gg.spring.graphql.resolvers.AuthorResolver;
+import com.gg.spring.graphql.resolvers.PostMutationResolver;
 import com.gg.spring.graphql.resolvers.PostResolver;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@Slf4j
 public class GraphQlConfiguration {
     @Bean
     public PostDao postDao() {
@@ -29,6 +32,7 @@ public class GraphQlConfiguration {
                 posts.add(post);
             }
         }
+        log.info("Loaded posts :"+posts);
         return new PostDao(posts);
     }
 
@@ -42,6 +46,7 @@ public class GraphQlConfiguration {
             author.setThumbnail("http://example.com/authors/" + authorId);
             authors.add(author);
         }
+        log.info("Loaded authors :"+authors);
         return new AuthorDao(authors);
     }
 
@@ -59,9 +64,10 @@ public class GraphQlConfiguration {
     public Query query(PostDao postDao) {
         return new Query(postDao);
     }
-
- /*   @Bean
-    public Mutation mutation(PostDao postDao) {
-        return new Mutation(postDao);
-    }*/
+    
+    @Bean
+    public PostMutationResolver mutationResolverResolver(PostDao postDao) {
+        return new PostMutationResolver(postDao);
+    }
+    
 }

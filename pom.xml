@@ -51,6 +51,13 @@
 			<version>5.2.1.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-spring-boot-starter-test</artifactId>
+			<version>5.2.4</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

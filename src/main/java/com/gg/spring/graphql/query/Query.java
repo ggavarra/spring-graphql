@@ -7,7 +7,7 @@ import com.gg.spring.graphql.model.Post;
 import java.util.List;
 
 public class Query implements GraphQLQueryResolver {
-    private PostDao postDao;
+    private final PostDao postDao;
 
     public Query(PostDao postDao) {
         this.postDao = postDao;
