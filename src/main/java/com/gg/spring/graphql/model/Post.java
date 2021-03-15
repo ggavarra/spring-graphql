@@ -2,9 +2,11 @@ package com.gg.spring.graphql.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class Post {
 
     private String id;

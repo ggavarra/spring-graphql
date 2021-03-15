@@ -3,7 +3,9 @@ package com.gg.spring.graphql.resolvers;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.gg.spring.graphql.dao.PostDao;
 import com.gg.spring.graphql.model.Post;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class PostMutationResolver implements GraphQLMutationResolver {
     
     private final PostDao postDao;
@@ -16,7 +18,6 @@ public class PostMutationResolver implements GraphQLMutationResolver {
         postDao.savePost(post);
     }
 
-    //writePost(title: String!, text: String!, category: String, author: String!) : Post!
     public Post writePost(String title,String text,String category, String author){
         Post post=new Post();
         post.setTitle(title);

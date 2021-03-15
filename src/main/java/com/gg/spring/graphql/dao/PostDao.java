@@ -1,10 +1,12 @@
 package com.gg.spring.graphql.dao;
 
 import com.gg.spring.graphql.model.Post;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class PostDao {
     private final List<Post> posts;
 
@@ -21,6 +23,8 @@ public class PostDao {
     }
 
     public void savePost(Post post) {
+        log.info("Existing post count "+posts.size());
+        log.info("Adding new post :"+post);
         posts.add(0, post);
     }
     
